@@ -10,9 +10,7 @@
   --color-border: rgba(23, 33, 43, 0.12);
   --font-sans:
     "Avenir Next", "Segoe UI", "Helvetica Neue", "Arial Nova", sans-serif;
-  --font-serif:
-    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Times New Roman",
-    serif;
+  --font-serif: var(--font-serif, "Playfair Display", "Palatino Linotype", serif);
 }
 
 * {

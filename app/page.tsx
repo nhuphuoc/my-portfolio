@@ -1,15 +1,8 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  contactLinks,
-  experience,
-  faqs,
-  highlights,
-  personalInfo,
-  projects,
-  services,
-  skillGroups
-} from "@/data/portfolio";
+import { useLanguage } from "./language-provider";
+import { translations } from "@/data/portfolio";
 
 const contactIcons: Record<string, React.ReactNode> = {
   GitHub: (
@@ -35,18 +28,9 @@ const contactIcons: Record<string, React.ReactNode> = {
   )
 };
 
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" }
-];
+type Project = typeof translations.en.projects[number];
 
-function ScreenshotGallery({
-  project
-}: {
-  project: (typeof projects)[number];
-}) {
+function ScreenshotGallery({ project }: { project: Project }) {
   const [primary, ...secondary] = project.screenshots;
 
   return (
@@ -101,6 +85,10 @@ function ScreenshotGallery({
 }
 
 export default function Home() {
+  const { lang, toggle } = useLanguage();
+  const t = translations[lang];
+  const { personalInfo, highlights, contactLinks, experience, services, skillGroups, projects, faqs, ui } = t;
+
   return (
     <main className="min-h-screen bg-[var(--color-cream)] text-[var(--color-ink)]">
       <section className="relative overflow-hidden">
@@ -112,26 +100,34 @@ export default function Home() {
               {personalInfo.name}
             </Link>
             <nav className="hidden items-center gap-6 text-sm text-[var(--color-muted)] md:flex">
-              {navItems.map((item) => (
+              {ui.nav.items.map((item) => (
                 <Link key={item.href} href={item.href} className="transition hover:text-[var(--color-ink)]">
                   {item.label}
                 </Link>
               ))}
             </nav>
-            <Link href="#contact" className="button button-secondary hidden md:inline-flex">
-              Let&apos;s talk
-            </Link>
+            <div className="hidden items-center gap-3 md:flex">
+              <button
+                onClick={toggle}
+                className="hidden items-center gap-1.5 rounded-full border border-[var(--color-border)] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)] md:flex"
+              >
+                {lang === "en" ? "VI" : "EN"}
+              </button>
+              <Link href="#contact" className="button button-secondary">
+                {ui.nav.cta}
+              </Link>
+            </div>
           </header>
 
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-white/65 px-4 py-2 text-sm text-[var(--color-muted)] backdrop-blur">
                 <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-accent)] shadow-[0_0_18px_rgba(196,120,66,0.85)]" />
-                Available for freelance collaborations
+                {ui.hero.badge}
               </div>
               <div className="space-y-6">
                 <p className="section-label">Portfolio 2026</p>
-                <h1 className="max-w-4xl font-serif text-5xl leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-8xl">
+                <h1 className={`font-serif text-4xl tracking-[-0.04em] sm:text-5xl lg:text-7xl ${lang === "vi" ? "leading-[1.15]" : "leading-[0.95]"}`}>
                   {personalInfo.tagline}
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-xl">
@@ -140,10 +136,10 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="#projects" className="button">
-                  Explore projects
+                  {ui.nav.exploreCta}
                 </Link>
                 <Link href={personalInfo.cvHref} className="button button-ghost">
-                  Download CV
+                  {ui.nav.downloadCv}
                 </Link>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
@@ -180,20 +176,20 @@ export default function Home() {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                        Based in
+                        {ui.hero.basedIn}
                       </p>
                       <p className="mt-2 text-xl font-semibold">{personalInfo.location}</p>
                     </div>
                     <div className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-muted)]">
-                      Since 2020
+                      {ui.hero.since}
                     </div>
                   </div>
                   <div className="rounded-[1.5rem] bg-[var(--color-surface)] p-6">
                     <p className="text-sm uppercase tracking-[0.22em] text-[var(--color-muted)]">
-                      Current focus
+                      {ui.hero.currentFocusLabel}
                     </p>
                     <p className="mt-4 text-2xl font-semibold leading-tight">
-                      Building scalable backend systems and modern web products with performance, usability, and business impact in mind.
+                      {ui.hero.currentFocusText}
                     </p>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -220,9 +216,9 @@ export default function Home() {
       <section id="about" className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-4">
-            <p className="section-label">About</p>
+            <p className="section-label">{ui.about.label}</p>
             <h2 className="font-serif text-4xl leading-tight tracking-[-0.04em] sm:text-5xl">
-              Building digital experiences that feel editorial, fast, and unmistakably modern.
+              {ui.about.heading}
             </h2>
           </div>
           <div className="grid gap-6">
@@ -251,13 +247,13 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
           <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="section-label">Skills & Services</p>
+              <p className="section-label">{ui.services.label}</p>
               <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
-                Strategy-minded execution from concept to launch.
+                {ui.services.heading}
               </h2>
             </div>
             <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">
-              A balanced mix of interface craft, technical depth, and product thinking for founders, agencies, and growing teams.
+              {ui.services.subheading}
             </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
@@ -298,13 +294,13 @@ export default function Home() {
       <section id="projects" className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
         <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="section-label">Featured Projects</p>
+            <p className="section-label">{ui.projects.label}</p>
             <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
-              Selected work with strong visual systems and measurable outcomes.
+              {ui.projects.heading}
             </h2>
           </div>
           <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">
-            Each case study is structured to communicate taste, problem-solving, and the ability to turn business goals into polished digital experiences.
+            {ui.projects.subheading}
           </p>
         </div>
         <div className="grid gap-6">
@@ -344,10 +340,10 @@ export default function Home() {
                 )}
                 <div className="flex flex-wrap gap-3">
                   <Link href={project.demo} className="button">
-                    Live demo
+                    {ui.nav.liveDemo}
                   </Link>
                   <Link href={project.github} className="button button-ghost">
-                    Source code
+                    {ui.nav.sourceCode}
                   </Link>
                 </div>
               </div>
@@ -371,19 +367,19 @@ export default function Home() {
           </div>
 
           <section id="contact" className="panel p-7 sm:p-8">
-            <p className="section-label">Contact</p>
+            <p className="section-label">{ui.contact.label}</p>
             <h2 className="mt-4 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
-              Let&apos;s make something that feels premium from the first scroll.
+              {ui.contact.heading}
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)]">
-              I&apos;m open to freelance product websites, landing pages, portfolio revamps, and design-forward frontend collaborations.
+              {ui.contact.subheading}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={`mailto:${personalInfo.email}`} className="button">
                 {personalInfo.email}
               </a>
               <a href={`tel:${personalInfo.phoneRaw}`} className="button button-ghost">
-                Call me
+                {ui.nav.callMe}
               </a>
             </div>
             <div className="mt-10 grid gap-4">
@@ -404,9 +400,9 @@ export default function Home() {
 
       <footer className="border-t border-[var(--color-border)] bg-white/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-[var(--color-muted)] md:flex-row md:items-center md:justify-between md:px-10 lg:px-12">
-          <p>{personalInfo.name} © 2026. Built with Next.js, TypeScript, and Tailwind CSS.</p>
+          <p>{personalInfo.name} {ui.footer}</p>
           <div className="flex flex-wrap gap-4">
-            {navItems.map((item) => (
+            {ui.nav.items.map((item) => (
               <Link key={item.href} href={item.href}>
                 {item.label}
               </Link>

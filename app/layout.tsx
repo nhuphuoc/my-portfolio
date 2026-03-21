@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./language-provider";
+
+const playfair = Playfair_Display({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-serif",
+  display: "swap"
+});
 
 const title = "Phuoc Bui | Creative Developer Portfolio";
 const description =
@@ -39,8 +47,10 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning>{children}</body>
+    <html lang="en" className={playfair.variable}>
+      <body suppressHydrationWarning>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
