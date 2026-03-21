@@ -13,9 +13,9 @@ export const personalInfo = {
 };
 
 export const highlights = [
-  { value: "GPA 8.57", label: "Graduated with distinction in Software Engineering from UIT" },
-  { value: "7 semesters", label: "Received scholarships and outstanding student recognition consecutively" },
-  { value: "Top 4", label: "Won fourth prize at the National Science and Engineering Fair" }
+  { value: "4+ years", label: "Hands-on experience across backend systems and modern web products" },
+  { value: "Top 4th", label: "Won fourth prize at the National Science and Engineering Fair" },
+  { value: "10+ projects", label: "Participated in and successfully delivered software and web product projects" }
 ];
 
 export const contactLinks = [
@@ -210,18 +210,18 @@ export const projects = [
 
 export const faqs = [
   {
-    question: "Can project metrics and screenshots be added later?",
+    question: "How long does it take to build a web application?",
     answer:
-      "Yes. This structure is ready for adding real screenshots, demo links, GitHub links, and stronger metrics such as lead growth, load speed, or retention improvements."
+      "The timeline depends on the project's complexity. A landing page or portfolio typically takes 1 to 2 weeks. For larger web applications with custom features, it usually takes 1 to 3 months. By leveraging modern frameworks like Next.js and Supabase, I can speed up development without compromising on quality or performance."
   },
   {
-    question: "Is this setup ready for Vercel deployment?",
+    question: "Can you handle both the frontend and the backend of my project?",
     answer:
-      "Yes. The project uses a standard Next.js structure, production build script, and App Router configuration that works well with Vercel."
+      "Yes. I am a Full-stack Software Engineer. I build fast, responsive user interfaces using Next.js, React, and Tailwind CSS. For the backend, I adapt to your specific needs, using Supabase for rapid development and real-time features, or Java with Spring Boot for more complex, enterprise-grade business logic."
   },
   {
-    question: "Can we add bilingual content, blog pages, or a real contact form later?",
+    question: "Do you provide support and maintenance after the project is finished?",
     answer:
-      "Absolutely. The current structure leaves room for extra routes, CMS integration, server actions, or third-party form providers in the next iteration."
+      "Absolutely. I provide a standard post-launch support period, usually 1 to 3 months depending on the project scope, to make sure the system runs smoothly and remains bug-free. I also deliver clear documentation so you can manage the application confidently after handoff."
   }
 ];
