@@ -16,7 +16,7 @@ export default function CardPage() {
       <div className="w-full max-w-sm">
 
         {/* Front */}
-        <div className="relative overflow-hidden rounded-[2rem] bg-[var(--color-ink)] text-white shadow-[0_40px_100px_rgba(18,26,33,0.28)] aspect-[1.75/1]">
+        <div className="relative overflow-hidden rounded-[2rem] bg-[#1b3450] text-white shadow-[0_40px_100px_rgba(27,52,80,0.35)] aspect-[1.75/1]">
 
           {/* Background texture */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(196,120,66,0.35),transparent_50%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.06),transparent_40%)]" />
