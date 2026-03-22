@@ -40,7 +40,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Phuoc Bui",
-  alternateName: ["Bui Nhu Phuoc", "Bui Phuoc"],
+  alternateName: ["Bui Nhu Phuoc", "Bui Phuoc", "Bùi Nhữ Phước", "Bùi Phước"],
   url: siteUrl,
   email: "nhuphuoc.bui@gmail.com",
   jobTitle: "Software Engineer",

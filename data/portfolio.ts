@@ -64,7 +64,7 @@ export const translations: Record<Lang, PortfolioTranslation> = {
       intro:
         "Full-stack developer focused on solid backend architecture, modern web delivery, and practical product execution with Next.js and Spring Boot.",
       about:
-        "I am a software engineer with a problem-solving mindset and a strong focus on building technology that is clean, effective, and useful in real business contexts. My strengths span backend engineering with Java and Spring Boot, full-stack product development, and modern frontend implementation with React and Next.js. I care about architecture, maintainability, performance, and user experience because strong software should not only work reliably, it should also create measurable value for the people using it.",
+        "I'm Phuoc Bui (Bùi Nhữ Phước), a software engineer with a problem-solving mindset and a strong focus on building technology that is clean, effective, and useful in real business contexts. My strengths span backend engineering with Java and Spring Boot, full-stack product development, and modern frontend implementation with React and Next.js. I care about architecture, maintainability, performance, and user experience because strong software should not only work reliably, it should also create measurable value for the people using it.",
       email: "nhuphuoc.bui@gmail.com",
       phone: "0362 103 314",
       phoneRaw: "+84362103314",
