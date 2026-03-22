@@ -53,6 +53,44 @@ interface PortfolioTranslation {
     contact: { label: string; heading: string; subheading: string };
     footer: string;
   };
+  freelance: {
+    nav: {
+      foundedBy: string;
+      viewPortfolio: string;
+      startProject: string;
+    };
+    hero: {
+      tagline: string;
+      intro: string;
+      idealClientsLabel: string;
+      idealClientsText: string;
+      bookCta: string;
+      selectedWorkCta: string;
+    };
+    serviceOffers: { title: string; summary: string; deliverables: string }[];
+    workProcess: { step: string; title: string; text: string }[];
+    engagementModels: { name: string; time: string; details: string; includes: string[] }[];
+    sections: {
+      whatIOffer: string;
+      whatIOfferSub: string;
+      selectedWork: string;
+      selectedWorkSub: string;
+      process: string;
+      processSub: string;
+      engagementModels: string;
+      engagementModelsSub: string;
+      faq: string;
+      cta: string;
+      ctaHeading: string;
+      ctaBody: string;
+      role: string;
+      whatWasBuilt: string;
+      whyItMatters: string;
+      viewLive: string;
+      chat: string;
+      callMe: string;
+    };
+  };
 }
 
 export const translations: Record<Lang, PortfolioTranslation> = {
@@ -324,6 +362,84 @@ export const translations: Record<Lang, PortfolioTranslation> = {
           "I'm open to freelance product websites, landing pages, portfolio revamps, and design-forward frontend collaborations."
       },
       footer: "© 2026. Built with Next.js, TypeScript, and Tailwind CSS."
+    },
+    freelance: {
+      nav: {
+        foundedBy: "Founded by Phuoc Bui",
+        viewPortfolio: "View portfolio",
+        startProject: "Start a project"
+      },
+      hero: {
+        tagline: "Modern websites and full-stack web products for businesses that need clean execution.",
+        intro: "PB Studio is my freelance service brand, focused on landing pages, product websites, and full-stack applications built with Next.js, Supabase, and Spring Boot.",
+        idealClientsLabel: "Ideal clients",
+        idealClientsText: "Local businesses, service brands, founders, and teams who need a modern website or product workflow built with clear technical ownership.",
+        bookCta: "Book a free consultation",
+        selectedWorkCta: "See selected work"
+      },
+      serviceOffers: [
+        {
+          title: "Landing Pages That Convert",
+          summary: "Fast, SEO-friendly pages for local businesses, personal brands, and campaigns that need clear messaging and strong call-to-action structure.",
+          deliverables: "Best for: service businesses, launch campaigns, conversion-focused websites"
+        },
+        {
+          title: "Freelance Full-stack MVPs",
+          summary: "Modern web applications built with Next.js and Supabase, covering auth, role-based access, dashboards, CRUD workflows, and polished UI delivery.",
+          deliverables: "Best for: startups, internal tools, booking flows, platforms, admin systems"
+        },
+        {
+          title: "Scalable Backend & Product Systems",
+          summary: "For projects that need more structured business logic, I can design and implement backend services with Java and Spring Boot alongside a production-ready frontend.",
+          deliverables: "Best for: complex workflows, business platforms, enterprise-style systems"
+        }
+      ],
+      workProcess: [
+        { step: "01", title: "Discovery", text: "We align on goals, audience, features, business priorities, and the fastest way to deliver useful value." },
+        { step: "02", title: "Scope & Proposal", text: "I define the recommended scope, technical direction, timeline, and what will be delivered in each phase." },
+        { step: "03", title: "Build & Review", text: "I develop the product iteratively, keeping communication clear and reducing surprises through regular checkpoints." },
+        { step: "04", title: "Launch & Support", text: "After release, I help with stabilization, deployment guidance, and a post-launch support window." }
+      ],
+      engagementModels: [
+        {
+          name: "Landing Page Sprint",
+          time: "1 to 2 weeks",
+          details: "A focused engagement for local services, campaigns, personal brands, or portfolio websites.",
+          includes: ["Responsive UI", "SEO-ready structure", "Performance optimization", "Launch support"]
+        },
+        {
+          name: "Product MVP Build",
+          time: "3 to 8 weeks",
+          details: "A structured product delivery phase for dashboards, marketplaces, booking systems, and service platforms.",
+          includes: ["Next.js frontend", "Supabase backend", "Auth and roles", "Admin and core workflows"]
+        },
+        {
+          name: "Custom Full-stack System",
+          time: "1 to 3 months",
+          details: "A deeper engagement for systems with more custom logic, integrations, or backend architecture needs.",
+          includes: ["Architecture planning", "Spring Boot or Supabase backend", "Deployment support", "Documentation"]
+        }
+      ],
+      sections: {
+        whatIOffer: "What I Offer",
+        whatIOfferSub: "Focused freelance services for real business needs.",
+        selectedWork: "Selected Work",
+        selectedWorkSub: "Projects delivered across web and product engineering.",
+        process: "Process",
+        processSub: "A simple process that keeps freelance work structured.",
+        engagementModels: "Engagement Models",
+        engagementModelsSub: "Clear ways to work together.",
+        faq: "FAQ",
+        cta: "Let's Work Together",
+        ctaHeading: "Ready to start a project?",
+        ctaBody: "Tell me what you need and I'll get back to you within 24 hours. Happy to jump on a quick call to figure out the right scope together.",
+        role: "Role",
+        whatWasBuilt: "What was built",
+        whyItMatters: "Why it matters",
+        viewLive: "View live project",
+        chat: "Let's have a chat",
+        callMe: "Call me"
+      }
     }
   },
 
@@ -596,6 +712,84 @@ export const translations: Record<Lang, PortfolioTranslation> = {
           "Tôi đang nhận các dự án freelance về website sản phẩm, landing page, làm mới portfolio và các dự án frontend chú trọng vào thiết kế."
       },
       footer: "© 2026. Xây dựng bằng Next.js, TypeScript và Tailwind CSS."
+    },
+    freelance: {
+      nav: {
+        foundedBy: "Thành lập bởi Phuoc Bui",
+        viewPortfolio: "Xem portfolio",
+        startProject: "Bắt đầu dự án"
+      },
+      hero: {
+        tagline: "Website hiện đại và sản phẩm web full-stack cho doanh nghiệp cần thực thi chuyên nghiệp.",
+        intro: "PB Studio là thương hiệu dịch vụ freelance của tôi, chuyên về landing page, website sản phẩm và ứng dụng full-stack được xây dựng với Next.js, Supabase và Spring Boot.",
+        idealClientsLabel: "Khách hàng lý tưởng",
+        idealClientsText: "Doanh nghiệp địa phương, thương hiệu dịch vụ, founders và các nhóm cần website hiện đại hoặc quy trình sản phẩm được xây dựng với sự làm chủ kỹ thuật rõ ràng.",
+        bookCta: "Đặt lịch tư vấn miễn phí",
+        selectedWorkCta: "Xem công việc tiêu biểu"
+      },
+      serviceOffers: [
+        {
+          title: "Landing Page Chuyển Đổi Cao",
+          summary: "Trang web nhanh, thân thiện SEO cho doanh nghiệp địa phương, thương hiệu cá nhân và chiến dịch cần thông điệp rõ ràng và lời kêu gọi hành động hiệu quả.",
+          deliverables: "Phù hợp cho: doanh nghiệp dịch vụ, chiến dịch ra mắt, website tập trung chuyển đổi"
+        },
+        {
+          title: "MVP Full-stack Freelance",
+          summary: "Ứng dụng web hiện đại xây dựng với Next.js và Supabase, bao gồm xác thực, phân quyền, dashboard, quy trình CRUD và giao diện hoàn thiện.",
+          deliverables: "Phù hợp cho: startup, công cụ nội bộ, quy trình đặt hàng, nền tảng, hệ thống quản trị"
+        },
+        {
+          title: "Hệ Thống Backend & Sản Phẩm Mở Rộng",
+          summary: "Với dự án cần logic nghiệp vụ phức tạp, tôi có thể thiết kế và triển khai dịch vụ backend với Java và Spring Boot kết hợp frontend sẵn sàng production.",
+          deliverables: "Phù hợp cho: quy trình phức tạp, nền tảng kinh doanh, hệ thống cấp doanh nghiệp"
+        }
+      ],
+      workProcess: [
+        { step: "01", title: "Khám Phá", text: "Chúng ta cùng xác định mục tiêu, đối tượng, tính năng, ưu tiên kinh doanh và cách nhanh nhất để mang lại giá trị thực sự." },
+        { step: "02", title: "Phạm Vi & Đề Xuất", text: "Tôi xác định phạm vi đề xuất, hướng kỹ thuật, thời gian và những gì sẽ được bàn giao trong từng giai đoạn." },
+        { step: "03", title: "Xây Dựng & Đánh Giá", text: "Tôi phát triển sản phẩm theo từng bước, giao tiếp rõ ràng và giảm thiểu bất ngờ qua các điểm kiểm tra thường xuyên." },
+        { step: "04", title: "Ra Mắt & Hỗ Trợ", text: "Sau khi phát hành, tôi hỗ trợ ổn định hóa, hướng dẫn triển khai và giai đoạn hỗ trợ sau ra mắt." }
+      ],
+      engagementModels: [
+        {
+          name: "Sprint Landing Page",
+          time: "1 đến 2 tuần",
+          details: "Hợp tác tập trung cho dịch vụ địa phương, chiến dịch, thương hiệu cá nhân hoặc website portfolio.",
+          includes: ["Giao diện responsive", "Cấu trúc tối ưu SEO", "Tối ưu hiệu suất", "Hỗ trợ ra mắt"]
+        },
+        {
+          name: "Xây Dựng MVP Sản Phẩm",
+          time: "3 đến 8 tuần",
+          details: "Giai đoạn bàn giao có cấu trúc cho dashboard, marketplace, hệ thống đặt chỗ và nền tảng dịch vụ.",
+          includes: ["Frontend Next.js", "Backend Supabase", "Xác thực và phân quyền", "Quản trị và quy trình cốt lõi"]
+        },
+        {
+          name: "Hệ Thống Full-stack Tùy Chỉnh",
+          time: "1 đến 3 tháng",
+          details: "Hợp tác sâu cho hệ thống có logic tùy chỉnh, tích hợp hoặc nhu cầu kiến trúc backend phức tạp.",
+          includes: ["Lập kế hoạch kiến trúc", "Backend Spring Boot hoặc Supabase", "Hỗ trợ triển khai", "Tài liệu hóa"]
+        }
+      ],
+      sections: {
+        whatIOffer: "Dịch Vụ Cung Cấp",
+        whatIOfferSub: "Dịch vụ freelance tập trung vào nhu cầu kinh doanh thực tế.",
+        selectedWork: "Công Việc Tiêu Biểu",
+        selectedWorkSub: "Các dự án đã bàn giao trong lĩnh vực web và sản phẩm.",
+        process: "Quy Trình",
+        processSub: "Quy trình đơn giản giúp công việc freelance có cấu trúc.",
+        engagementModels: "Hình Thức Hợp Tác",
+        engagementModelsSub: "Các hình thức làm việc rõ ràng dành cho khách hàng.",
+        faq: "Câu Hỏi Thường Gặp",
+        cta: "Hãy Hợp Tác",
+        ctaHeading: "Sẵn sàng bắt đầu dự án?",
+        ctaBody: "Hãy cho tôi biết bạn cần gì và tôi sẽ phản hồi trong vòng 24 giờ. Sẵn sàng trao đổi nhanh để cùng xác định phạm vi phù hợp nhất.",
+        role: "Vai Trò",
+        whatWasBuilt: "Những Gì Đã Xây Dựng",
+        whyItMatters: "Tại Sao Quan Trọng",
+        viewLive: "Xem dự án trực tiếp",
+        chat: "Nhắn tin cho tôi",
+        callMe: "Gọi cho tôi"
+      }
     }
   }
 };
