@@ -22,6 +22,56 @@ export default function FreelanceClientPage() {
 
   const freelanceHighlights = highlights.filter((item) => item.value !== "Top 4th" && item.value !== "Top 4");
   const featuredProjects = data.projects.slice(0, 3);
+  const trustPoints =
+    lang === "en"
+      ? [
+          "4+ years building production software and modern websites",
+          "15+ delivered software and web product projects",
+          "Experience across NAB Innovation Centre, Renesas, and KMS Solutions"
+        ]
+      : [
+          "4+ năm xây dựng sản phẩm phần mềm và website thực tế",
+          "15+ dự án phần mềm và web đã tham gia và bàn giao",
+          "Kinh nghiệm làm việc tại NAB Innovation Centre, Renesas và KMS Solutions"
+        ];
+  const differentiators =
+    lang === "en"
+      ? [
+          {
+            title: "Full-stack ownership",
+            text: "One technical partner who can handle frontend polish, backend logic, data flow, deployment, and product structure."
+          },
+          {
+            title: "Fast modern stack",
+            text: "I use Next.js, Supabase, Tailwind CSS, and shadcn/ui to move quickly without sacrificing maintainability."
+          },
+          {
+            title: "Business-first execution",
+            text: "The goal is not only to make a site look good, but to help it convert, communicate clearly, and support growth."
+          },
+          {
+            title: "Scalable when needed",
+            text: "For more complex systems, I can extend the architecture with Java and Spring Boot for deeper business logic."
+          }
+        ]
+      : [
+          {
+            title: "Làm chủ full-stack",
+            text: "Một đầu mối kỹ thuật có thể xử lý giao diện, logic backend, luồng dữ liệu, triển khai và cấu trúc sản phẩm."
+          },
+          {
+            title: "Stack hiện đại, triển khai nhanh",
+            text: "Tôi dùng Next.js, Supabase, Tailwind CSS và shadcn/ui để tăng tốc độ phát triển mà vẫn giữ code dễ bảo trì."
+          },
+          {
+            title: "Thực thi theo mục tiêu kinh doanh",
+            text: "Mục tiêu không chỉ là website đẹp, mà còn phải chuyển đổi tốt, truyền đạt rõ ràng và hỗ trợ tăng trưởng."
+          },
+          {
+            title: "Sẵn sàng mở rộng khi cần",
+            text: "Với các hệ thống phức tạp hơn, tôi có thể mở rộng kiến trúc bằng Java và Spring Boot cho logic nghiệp vụ sâu hơn."
+          }
+        ];
 
   return (
     <main key={lang} className="min-h-screen bg-[var(--color-cream)] text-[var(--color-ink)]">
@@ -37,7 +87,7 @@ export default function FreelanceClientPage() {
         >
           <motion.header
             variants={fadeUp}
-            className="mb-16 flex flex-col gap-4 rounded-[1.75rem] border border-[var(--color-border)] bg-white/70 p-5 backdrop-blur md:flex-row md:items-center md:justify-between"
+            className="mb-16 flex flex-col gap-4 rounded-[1.75rem] border border-[rgba(23,33,43,0.08)] bg-white/72 p-5 backdrop-blur md:flex-row md:items-center md:justify-between"
           >
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.26em]">PB Studio</p>
@@ -59,15 +109,29 @@ export default function FreelanceClientPage() {
             </div>
           </motion.header>
 
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
             <motion.div variants={fadeUp} className="space-y-8">
               <p className="section-label">PB Studio</p>
-              <h1 className="max-w-4xl font-serif text-5xl leading-[0.92] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+              <h1
+                className={`max-w-3xl font-serif tracking-[-0.03em] ${
+                  lang === "vi"
+                    ? "text-[2.75rem] leading-[1.04] sm:text-[3.15rem] lg:text-[3.45rem]"
+                    : "text-[3.1rem] leading-[0.98] sm:text-[3.55rem] lg:text-[3.95rem]"
+                }`}
+              >
                 {freelance.hero.tagline}
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
+              <p className="max-w-xl text-lg leading-8 text-[var(--color-muted)]">
                 {freelance.hero.intro}
               </p>
+              <div className="grid max-w-xl gap-3 text-sm text-[var(--color-muted)]">
+                {trustPoints.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--color-accent)] shadow-[0_0_18px_rgba(196,120,66,0.45)]" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a href={`mailto:${personalInfo.email}`} className="button">
                   {freelance.hero.bookCta}
@@ -78,7 +142,7 @@ export default function FreelanceClientPage() {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="panel p-6 sm:p-8">
+            <motion.div variants={fadeUp} className="overflow-hidden rounded-[2rem] border border-[rgba(23,33,43,0.08)] bg-[#121a22] p-6 text-white shadow-[0_30px_90px_rgba(18,26,33,0.18)] sm:p-8 lg:ml-auto lg:w-full lg:max-w-[42rem]">
               <motion.div variants={stagger} className="grid gap-4 sm:grid-cols-2">
                 {freelanceHighlights.map((item) => (
                   <motion.article
@@ -86,18 +150,18 @@ export default function FreelanceClientPage() {
                     variants={fadeUp}
                     whileHover={{ y: -6 }}
                     transition={{ duration: 0.2 }}
-                    className="rounded-[1.35rem] border border-[var(--color-border)] bg-white p-4"
+                    className="rounded-[1.35rem] border border-white/10 bg-white/6 p-4 backdrop-blur-sm"
                   >
                     <p className="text-2xl font-semibold sm:text-3xl">{item.value}</p>
-                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{item.label}</p>
+                    <p className="mt-2 text-sm leading-6 text-white/74">{item.label}</p>
                   </motion.article>
                 ))}
               </motion.div>
-              <motion.div variants={fadeUp} className="mt-5 rounded-[1.4rem] bg-[var(--color-surface)] p-5">
-                <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
+              <motion.div variants={fadeUp} className="mt-5 rounded-[1.4rem] bg-[linear-gradient(135deg,rgba(196,120,66,0.22),rgba(66,154,182,0.16))] p-5">
+                <p className="text-sm uppercase tracking-[0.18em] text-[#ffd6b8]">
                   {freelance.hero.idealClientsLabel}
                 </p>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
+                <p className="mt-3 text-sm leading-7 text-white/80">
                   {freelance.hero.idealClientsText}
                 </p>
               </motion.div>
@@ -121,6 +185,11 @@ export default function FreelanceClientPage() {
               {freelance.sections.whatIOfferSub}
             </h2>
           </div>
+          <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">
+            {lang === "en"
+              ? "This section turns your skillset into clear service packages so potential clients understand what PB Studio can build for them."
+              : "Phần này chuyển kỹ năng của bạn thành các gói dịch vụ rõ ràng để khách hàng tiềm năng hiểu PB Studio có thể xây dựng gì cho họ."}
+          </p>
         </motion.div>
         <div className="grid gap-6 lg:grid-cols-3">
           {freelance.serviceOffers.map((offer) => (
@@ -139,6 +208,48 @@ export default function FreelanceClientPage() {
         </div>
       </motion.section>
 
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={stagger}
+        className="mx-auto max-w-7xl px-6 pb-20 md:px-10 lg:px-12"
+      >
+        <div className="rounded-[2rem] bg-[#121a22] p-7 text-white shadow-[0_30px_90px_rgba(18,26,33,0.16)] sm:p-8">
+          <motion.div variants={fadeUp} className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#7fd6df]">
+                {lang === "en" ? "Why PB Studio" : "Vì Sao Chọn PB Studio"}
+              </p>
+              <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
+                {lang === "en"
+                  ? "A freelance partner with both design sensitivity and engineering depth."
+                  : "Một đối tác freelance cân bằng giữa gu thẩm mỹ và chiều sâu kỹ thuật."}
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7 text-white/70">
+              {lang === "en"
+                ? "Clients need more than a list of technologies. They need to understand why working with you is lower-risk and higher-value."
+                : "Khách hàng không chỉ cần danh sách công nghệ. Họ cần thấy vì sao làm việc với bạn sẽ ít rủi ro hơn và mang lại giá trị cao hơn."}
+            </p>
+          </motion.div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {differentiators.map((item) => (
+              <motion.article
+                key={item.title}
+                variants={fadeUp}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.22 }}
+                className="rounded-[1.4rem] border border-white/10 bg-white/6 p-5 backdrop-blur-sm"
+              >
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/72">{item.text}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* ── Selected Work ── */}
       <motion.section
         id="case-studies"
@@ -149,11 +260,18 @@ export default function FreelanceClientPage() {
         className="border-y border-[var(--color-border)] bg-white/55"
       >
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
-          <motion.div variants={fadeUp} className="mb-10">
-            <p className="section-label">{freelance.sections.selectedWork}</p>
-            <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
-              {freelance.sections.selectedWorkSub}
-            </h2>
+          <motion.div variants={fadeUp} className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="section-label">{freelance.sections.selectedWork}</p>
+              <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
+                {freelance.sections.selectedWorkSub}
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">
+              {lang === "en"
+                ? "These case studies are framed around business outcomes, technical decisions, and delivery capability so clients can understand the value behind the build."
+                : "Các case study này được trình bày theo kết quả kinh doanh, quyết định kỹ thuật và năng lực triển khai để khách hàng hiểu rõ giá trị phía sau sản phẩm."}
+            </p>
           </motion.div>
           <div className="grid gap-6">
             {featuredProjects.map((project) => (
@@ -327,6 +445,25 @@ export default function FreelanceClientPage() {
           </motion.div>
         </div>
       </motion.section>
+
+      <footer className="border-t border-[var(--color-border)] bg-[rgba(255,255,255,0.72)]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-[var(--color-muted)] md:flex-row md:items-center md:justify-between md:px-10 lg:px-12">
+          <div>
+            <p className="font-medium text-[var(--color-ink)]">PB Studio</p>
+            <p className="mt-1">
+              {lang === "en"
+                ? "Web & Product Engineering by Phuoc Bui"
+                : "Dịch vụ Web & Product Engineering bởi Phuoc Bui"}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+            <a href={`tel:${personalInfo.phoneRaw}`}>{personalInfo.phone}</a>
+            <Link href={contactLinks[0]?.href ?? "#"}>{contactLinks[0]?.label ?? "GitHub"}</Link>
+            <Link href={contactLinks[1]?.href ?? "#"}>{contactLinks[1]?.label ?? "LinkedIn"}</Link>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

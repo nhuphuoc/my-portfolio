@@ -370,8 +370,8 @@ export const translations: Record<Lang, PortfolioTranslation> = {
         startProject: "Start a project"
       },
       hero: {
-        tagline: "Modern websites and full-stack web products for businesses that need clean execution.",
-        intro: "PB Studio is my freelance service brand, focused on landing pages, product websites, and full-stack applications built with Next.js, Supabase, and Spring Boot.",
+        tagline: "Modern websites and full-stack web products for businesses that need more than a generic template.",
+        intro: "PB Studio helps service brands, local businesses, founders, and growing teams launch websites and product experiences that are clear, fast, scalable, and built for real business goals.",
         idealClientsLabel: "Ideal clients",
         idealClientsText: "Local businesses, service brands, founders, and teams who need a modern website or product workflow built with clear technical ownership.",
         bookCta: "Book a free consultation",
@@ -379,19 +379,19 @@ export const translations: Record<Lang, PortfolioTranslation> = {
       },
       serviceOffers: [
         {
-          title: "Landing Pages That Convert",
-          summary: "Fast, SEO-friendly pages for local businesses, personal brands, and campaigns that need clear messaging and strong call-to-action structure.",
-          deliverables: "Best for: service businesses, launch campaigns, conversion-focused websites"
+          title: "Landing Page Sprint",
+          summary: "High-converting landing pages for local businesses, service brands, and campaigns that need clear messaging, strong calls to action, and SEO-ready structure.",
+          deliverables: "Deliverables: messaging structure, responsive UI, SEO foundations, launch-ready implementation"
         },
         {
-          title: "Freelance Full-stack MVPs",
-          summary: "Modern web applications built with Next.js and Supabase, covering auth, role-based access, dashboards, CRUD workflows, and polished UI delivery.",
-          deliverables: "Best for: startups, internal tools, booking flows, platforms, admin systems"
+          title: "Business Website Build",
+          summary: "Modern business websites that look premium, load fast, and give companies a more trustworthy digital presence.",
+          deliverables: "Deliverables: page system, CMS or data workflow, optimization, deployment guidance"
         },
         {
-          title: "Scalable Backend & Product Systems",
-          summary: "For projects that need more structured business logic, I can design and implement backend services with Java and Spring Boot alongside a production-ready frontend.",
-          deliverables: "Best for: complex workflows, business platforms, enterprise-style systems"
+          title: "Full-stack Product MVP",
+          summary: "Web applications with auth, dashboards, admin flows, role-based access, realtime interactions, and scalable frontend-backend coordination.",
+          deliverables: "Deliverables: Next.js frontend, Supabase or Spring Boot backend, core product workflows, post-launch support"
         }
       ],
       workProcess: [
@@ -404,8 +404,14 @@ export const translations: Record<Lang, PortfolioTranslation> = {
         {
           name: "Landing Page Sprint",
           time: "1 to 2 weeks",
-          details: "A focused engagement for local services, campaigns, personal brands, or portfolio websites.",
+          details: "A focused engagement for local services, campaigns, personal brands, or offer pages that need fast delivery.",
           includes: ["Responsive UI", "SEO-ready structure", "Performance optimization", "Launch support"]
+        },
+        {
+          name: "Website & Growth Build",
+          time: "2 to 5 weeks",
+          details: "A business website engagement for brands that need more than a one-page landing page.",
+          includes: ["Multi-page structure", "Lead-focused UX", "Supabase content workflow", "Deployment setup"]
         },
         {
           name: "Product MVP Build",
@@ -421,18 +427,18 @@ export const translations: Record<Lang, PortfolioTranslation> = {
         }
       ],
       sections: {
-        whatIOffer: "What I Offer",
-        whatIOfferSub: "Focused freelance services for real business needs.",
+        whatIOffer: "Service Packages",
+        whatIOfferSub: "Clear offers clients can actually buy.",
         selectedWork: "Selected Work",
-        selectedWorkSub: "Projects delivered across web and product engineering.",
+        selectedWorkSub: "Case studies framed around business value and delivery capability.",
         process: "Process",
         processSub: "A simple process that keeps freelance work structured.",
         engagementModels: "Engagement Models",
-        engagementModelsSub: "Clear ways to work together.",
+        engagementModelsSub: "Clear ways clients can start working with PB Studio.",
         faq: "FAQ",
-        cta: "Let's Work Together",
-        ctaHeading: "Ready to start a project?",
-        ctaBody: "Tell me what you need and I'll get back to you within 24 hours. Happy to jump on a quick call to figure out the right scope together.",
+        cta: "Start A Project",
+        ctaHeading: "Tell me what you need and I will help shape the right build path.",
+        ctaBody: "For most projects, the fastest way to start is a short conversation about goals, scope, and timeline. From there, I can recommend whether you need a landing page, business website, or a full-stack MVP.",
         role: "Role",
         whatWasBuilt: "What was built",
         whyItMatters: "Why it matters",
@@ -720,8 +726,8 @@ export const translations: Record<Lang, PortfolioTranslation> = {
         startProject: "Bắt đầu dự án"
       },
       hero: {
-        tagline: "Website hiện đại và sản phẩm web full-stack cho doanh nghiệp cần thực thi chuyên nghiệp.",
-        intro: "PB Studio là thương hiệu dịch vụ freelance của tôi, chuyên về landing page, website sản phẩm và ứng dụng full-stack được xây dựng với Next.js, Supabase và Spring Boot.",
+        tagline: "Website hiện đại và sản phẩm web full-stack cho doanh nghiệp cần nhiều hơn một giao diện mẫu chung chung.",
+        intro: "PB Studio giúp doanh nghiệp dịch vụ, thương hiệu địa phương, founder và các nhóm đang phát triển xây dựng website và sản phẩm số rõ ràng, nhanh, có thể mở rộng và phục vụ đúng mục tiêu kinh doanh.",
         idealClientsLabel: "Khách hàng lý tưởng",
         idealClientsText: "Doanh nghiệp địa phương, thương hiệu dịch vụ, founders và các nhóm cần website hiện đại hoặc quy trình sản phẩm được xây dựng với sự làm chủ kỹ thuật rõ ràng.",
         bookCta: "Đặt lịch tư vấn miễn phí",
@@ -729,19 +735,19 @@ export const translations: Record<Lang, PortfolioTranslation> = {
       },
       serviceOffers: [
         {
-          title: "Landing Page Chuyển Đổi Cao",
-          summary: "Trang web nhanh, thân thiện SEO cho doanh nghiệp địa phương, thương hiệu cá nhân và chiến dịch cần thông điệp rõ ràng và lời kêu gọi hành động hiệu quả.",
-          deliverables: "Phù hợp cho: doanh nghiệp dịch vụ, chiến dịch ra mắt, website tập trung chuyển đổi"
+          title: "Landing Page Sprint",
+          summary: "Landing page tập trung chuyển đổi cho doanh nghiệp địa phương, thương hiệu dịch vụ và chiến dịch cần thông điệp rõ ràng, CTA mạnh và cấu trúc chuẩn SEO.",
+          deliverables: "Bàn giao: cấu trúc nội dung, UI responsive, nền tảng SEO, triển khai sẵn sàng ra mắt"
         },
         {
-          title: "MVP Full-stack Freelance",
-          summary: "Ứng dụng web hiện đại xây dựng với Next.js và Supabase, bao gồm xác thực, phân quyền, dashboard, quy trình CRUD và giao diện hoàn thiện.",
-          deliverables: "Phù hợp cho: startup, công cụ nội bộ, quy trình đặt hàng, nền tảng, hệ thống quản trị"
+          title: "Business Website Build",
+          summary: "Website doanh nghiệp hiện đại với giao diện chỉn chu, tốc độ tải tốt và giúp thương hiệu tạo cảm giác đáng tin cậy hơn trên môi trường số.",
+          deliverables: "Bàn giao: hệ thống trang, CMS hoặc luồng dữ liệu, tối ưu hiệu năng, hướng dẫn triển khai"
         },
         {
-          title: "Hệ Thống Backend & Sản Phẩm Mở Rộng",
-          summary: "Với dự án cần logic nghiệp vụ phức tạp, tôi có thể thiết kế và triển khai dịch vụ backend với Java và Spring Boot kết hợp frontend sẵn sàng production.",
-          deliverables: "Phù hợp cho: quy trình phức tạp, nền tảng kinh doanh, hệ thống cấp doanh nghiệp"
+          title: "Full-stack Product MVP",
+          summary: "Ứng dụng web với xác thực, dashboard, luồng quản trị, phân quyền, realtime và sự phối hợp chặt chẽ giữa frontend và backend.",
+          deliverables: "Bàn giao: frontend Next.js, backend Supabase hoặc Spring Boot, quy trình sản phẩm cốt lõi, hỗ trợ sau launch"
         }
       ],
       workProcess: [
@@ -754,8 +760,14 @@ export const translations: Record<Lang, PortfolioTranslation> = {
         {
           name: "Sprint Landing Page",
           time: "1 đến 2 tuần",
-          details: "Hợp tác tập trung cho dịch vụ địa phương, chiến dịch, thương hiệu cá nhân hoặc website portfolio.",
+          details: "Hợp tác tập trung cho doanh nghiệp dịch vụ, chiến dịch, thương hiệu cá nhân hoặc trang ưu đãi cần triển khai nhanh.",
           includes: ["Giao diện responsive", "Cấu trúc tối ưu SEO", "Tối ưu hiệu suất", "Hỗ trợ ra mắt"]
+        },
+        {
+          name: "Xây Dựng Website Tăng Trưởng",
+          time: "2 đến 5 tuần",
+          details: "Gói website doanh nghiệp dành cho thương hiệu cần nhiều hơn một landing page đơn giản.",
+          includes: ["Cấu trúc nhiều trang", "UX hướng lead", "Workflow nội dung với Supabase", "Thiết lập triển khai"]
         },
         {
           name: "Xây Dựng MVP Sản Phẩm",
@@ -771,18 +783,18 @@ export const translations: Record<Lang, PortfolioTranslation> = {
         }
       ],
       sections: {
-        whatIOffer: "Dịch Vụ Cung Cấp",
-        whatIOfferSub: "Dịch vụ freelance tập trung vào nhu cầu kinh doanh thực tế.",
+        whatIOffer: "Gói Dịch Vụ",
+        whatIOfferSub: "Các gói rõ ràng mà khách hàng có thể lựa chọn.",
         selectedWork: "Công Việc Tiêu Biểu",
-        selectedWorkSub: "Các dự án đã bàn giao trong lĩnh vực web và sản phẩm.",
+        selectedWorkSub: "Case study được trình bày theo giá trị kinh doanh và năng lực triển khai.",
         process: "Quy Trình",
         processSub: "Quy trình đơn giản giúp công việc freelance có cấu trúc.",
         engagementModels: "Hình Thức Hợp Tác",
-        engagementModelsSub: "Các hình thức làm việc rõ ràng dành cho khách hàng.",
+        engagementModelsSub: "Các cách làm việc rõ ràng để bắt đầu cùng PB Studio.",
         faq: "Câu Hỏi Thường Gặp",
-        cta: "Hãy Hợp Tác",
-        ctaHeading: "Sẵn sàng bắt đầu dự án?",
-        ctaBody: "Hãy cho tôi biết bạn cần gì và tôi sẽ phản hồi trong vòng 24 giờ. Sẵn sàng trao đổi nhanh để cùng xác định phạm vi phù hợp nhất.",
+        cta: "Bắt Đầu Dự Án",
+        ctaHeading: "Hãy chia sẻ nhu cầu của bạn và tôi sẽ giúp định hình hướng triển khai phù hợp.",
+        ctaBody: "Với hầu hết dự án, cách nhanh nhất để bắt đầu là một cuộc trao đổi ngắn về mục tiêu, phạm vi và thời gian. Từ đó, tôi có thể đề xuất bạn nên làm landing page, website doanh nghiệp hay MVP full-stack.",
         role: "Vai Trò",
         whatWasBuilt: "Những Gì Đã Xây Dựng",
         whyItMatters: "Tại Sao Quan Trọng",
