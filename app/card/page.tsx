@@ -61,7 +61,7 @@ export default function CardPage() {
 
           <div className="relative z-10 flex h-full flex-col justify-between p-7">
             {/* Links */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3.5">
               {[
                 { label: "Web", value: "phuocbui.cloud", href: "https://www.phuocbui.cloud" },
                 { label: "GitHub", value: "github.com/nhuphuoc", href: "https://github.com/nhuphuoc" },
@@ -74,7 +74,7 @@ export default function CardPage() {
                   rel="noopener noreferrer"
                   className="flex items-baseline gap-3 group"
                 >
-                  <span className="w-14 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                  <span className="w-16 shrink-0 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-muted)]">
                     {item.label}
                   </span>
                   <span className="text-xs text-[var(--color-ink)] group-hover:text-[var(--color-accent-strong)] transition-colors">
