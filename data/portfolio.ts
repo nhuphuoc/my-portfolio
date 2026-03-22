@@ -351,7 +351,7 @@ export const translations: Record<Lang, PortfolioTranslation> = {
     contactLinks: [
       { label: "GitHub", value: "github.com/nhuphuoc", href: "https://github.com/nhuphuoc" },
       { label: "LinkedIn", value: "linkedin.com/in/phuocbn", href: "https://www.linkedin.com/in/phuocbn/" },
-      { label: "Instagram", value: "@phuocbuilds", href: "https://instagram.com/phuocbuilds" },
+      { label: "Instagram", value: "@until_you293", href: "https://instagram.com/until_you293" },
       { label: "Email", value: "nhuphuoc.bui@gmail.com", href: "mailto:nhuphuoc.bui@gmail.com" }
     ],
     services: [

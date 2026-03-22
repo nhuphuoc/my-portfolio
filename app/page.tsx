@@ -1,8 +1,26 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useLanguage } from "./language-provider";
 import { translations } from "@/data/portfolio";
+
+// ── Animation variants ──────────────────────────────────────────────────────
+
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } }
+};
+
+
+const stagger = (delay = 0.1) => ({
+  hidden: {},
+  show: { transition: { staggerChildren: delay } }
+});
+
+// ── Contact icons ────────────────────────────────────────────────────────────
 
 const contactIcons: Record<string, React.ReactNode> = {
   GitHub: (
@@ -28,10 +46,12 @@ const contactIcons: Record<string, React.ReactNode> = {
   )
 };
 
+// ── ScreenshotGallery ────────────────────────────────────────────────────────
+
 type Project = typeof translations.en.projects[number];
 
 function ScreenshotGallery({ project }: { project: Project }) {
-  const [primary, ...secondary] = project.screenshots;
+  const [primary] = project.screenshots;
 
   return (
     <div className="grid gap-4">
@@ -51,7 +71,6 @@ function ScreenshotGallery({ project }: { project: Project }) {
               </span>
             ))}
           </div>
-
           <div className="flex-1 rounded-[1.4rem] border border-white/15 bg-[rgba(12,18,26,0.28)] p-4 backdrop-blur-md">
             <div className="flex h-full flex-col rounded-[1.1rem] border border-white/15 bg-white/92 p-3 text-[var(--color-ink)] shadow-[0_24px_60px_rgba(10,14,20,0.24)]">
               <div className="mb-3 flex items-center justify-between">
@@ -79,10 +98,11 @@ function ScreenshotGallery({ project }: { project: Project }) {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
+
+// ── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   const { lang, toggle } = useLanguage();
@@ -91,10 +111,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[var(--color-cream)] text-[var(--color-ink)]">
+
+      {/* ── Hero ── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(196,120,66,0.22),_transparent_28%),radial-gradient(circle_at_85%_20%,_rgba(27,52,80,0.2),_transparent_24%),linear-gradient(180deg,_rgba(255,255,255,0.76),_rgba(248,241,232,0.95))]" />
         <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(27,52,80,0.5),transparent)]" />
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-6 md:px-10 lg:px-12">
+
+          {/* Navbar */}
           <header className="mb-16 flex items-center justify-between gap-6 rounded-full border border-[var(--color-border)] bg-white/70 px-5 py-3 backdrop-blur">
             <Link href="/" className="text-sm font-semibold uppercase tracking-[0.28em]">
               {personalInfo.name}
@@ -120,11 +144,14 @@ export default function Home() {
           </header>
 
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+
+            {/* Left — text */}
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-white/65 px-4 py-2 text-sm text-[var(--color-muted)] backdrop-blur">
                 <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-accent)] shadow-[0_0_18px_rgba(196,120,66,0.85)]" />
                 {ui.hero.badge}
               </div>
+
               <div className="space-y-6">
                 <p className="section-label">Portfolio 2026</p>
                 <h1 className={`font-serif text-4xl tracking-[-0.04em] sm:text-5xl lg:text-7xl ${lang === "vi" ? "leading-[1.15]" : "leading-[0.95]"}`}>
@@ -134,17 +161,18 @@ export default function Home() {
                   {personalInfo.intro}
                 </p>
               </div>
+
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="#projects" className="button">
-                  {ui.nav.exploreCta}
-                </Link>
-                <Link href={personalInfo.cvHref} className="button button-ghost">
-                  {ui.nav.downloadCv}
-                </Link>
+                <Link href="#projects" className="button">{ui.nav.exploreCta}</Link>
+                <Link href={personalInfo.cvHref} className="button button-ghost">{ui.nav.downloadCv}</Link>
               </div>
+
               <div className="grid gap-4 sm:grid-cols-3">
                 {highlights.map((item) => (
-                  <article key={item.label} className="rounded-[1.75rem] border border-[var(--color-border)] bg-white/80 p-5 shadow-[0_20px_60px_rgba(18,26,33,0.08)]">
+                  <article
+                    key={item.label}
+                    className="rounded-[1.75rem] border border-[var(--color-border)] bg-white/80 p-5 shadow-[0_20px_60px_rgba(18,26,33,0.08)]"
+                  >
                     <p className="text-3xl font-semibold">{item.value}</p>
                     <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{item.label}</p>
                   </article>
@@ -152,6 +180,7 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Right — profile card */}
             <div className="relative">
               <div className="absolute -left-5 top-10 hidden h-24 w-24 rounded-full border border-[var(--color-border)] bg-white/70 lg:block" />
               <div className="panel relative overflow-hidden p-7 sm:p-8">
@@ -175,9 +204,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                        {ui.hero.basedIn}
-                      </p>
+                      <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">{ui.hero.basedIn}</p>
                       <p className="mt-2 text-xl font-semibold">{personalInfo.location}</p>
                     </div>
                     <div className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-muted)]">
@@ -185,12 +212,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="rounded-[1.5rem] bg-[var(--color-surface)] p-6">
-                    <p className="text-sm uppercase tracking-[0.22em] text-[var(--color-muted)]">
-                      {ui.hero.currentFocusLabel}
-                    </p>
-                    <p className="mt-4 text-2xl font-semibold leading-tight">
-                      {ui.hero.currentFocusText}
-                    </p>
+                    <p className="text-sm uppercase tracking-[0.22em] text-[var(--color-muted)]">{ui.hero.currentFocusLabel}</p>
+                    <p className="mt-4 text-2xl font-semibold leading-tight">{ui.hero.currentFocusText}</p>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     {contactLinks.map((link) => (
@@ -213,7 +236,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
+      {/* ── About ── */}
+      <motion.section
+        id="about"
+        className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-4">
             <p className="section-label">{ui.about.label}</p>
@@ -223,58 +254,75 @@ export default function Home() {
           </div>
           <div className="grid gap-6">
             <div className="panel p-7">
-              <p className="text-lg leading-8 text-[var(--color-muted)]">
-                {personalInfo.about}
-              </p>
+              <p className="text-lg leading-8 text-[var(--color-muted)]">{personalInfo.about}</p>
             </div>
-            <div className="grid gap-6 md:grid-cols-2">
+            <motion.div
+              className="grid gap-6 md:grid-cols-2"
+              variants={stagger(0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {experience.map((item) => (
-                <article key={item.title} className="rounded-[1.5rem] border border-[var(--color-border)] bg-white p-6">
-                  <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                    {item.period}
-                  </p>
+                <motion.article
+                  key={item.title}
+                  variants={fadeUp}
+                  className="rounded-[1.5rem] border border-[var(--color-border)] bg-white p-6"
+                >
+                  <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]">{item.period}</p>
                   <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
                   <p className="mt-2 text-sm font-medium text-[var(--color-accent-strong)]">{item.company}</p>
                   <p className="mt-4 text-sm leading-6 text-[var(--color-muted)]">{item.summary}</p>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
+      {/* ── Services ── */}
       <section id="services" className="border-y border-[var(--color-border)] bg-white/60">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
-          <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <motion.div
+            className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div>
               <p className="section-label">{ui.services.label}</p>
-              <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
-                {ui.services.heading}
-              </h2>
+              <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">{ui.services.heading}</h2>
             </div>
-            <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">
-              {ui.services.subheading}
-            </p>
-          </div>
+            <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">{ui.services.subheading}</p>
+          </motion.div>
           <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="grid gap-5">
+            <motion.div
+              className="grid gap-5"
+              variants={stagger(0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {services.map((service) => (
-                <article key={service.title} className="panel p-6">
-                  <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                    {service.index}
-                  </p>
+                <motion.article key={service.title} variants={fadeUp} className="panel p-6">
+                  <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]">{service.index}</p>
                   <h3 className="mt-4 text-2xl font-semibold">{service.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">{service.description}</p>
-                </article>
+                </motion.article>
               ))}
-            </div>
-            <div className="panel p-6 sm:p-8">
+            </motion.div>
+            <motion.div
+              className="panel p-6 sm:p-8"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="grid gap-6 md:grid-cols-2">
                 {skillGroups.map((group) => (
                   <div key={group.title} className="rounded-[1.5rem] bg-white p-6">
-                    <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                      {group.title}
-                    </p>
+                    <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-muted)]">{group.title}</p>
                     <ul className="mt-5 space-y-3">
                       {group.items.map((item) => (
                         <li key={item} className="flex items-center gap-3 text-sm sm:text-base">
@@ -286,27 +334,37 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
+      {/* ── Projects ── */}
       <section id="projects" className="mx-auto max-w-7xl px-6 py-20 md:px-10 lg:px-12">
-        <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <motion.div
+          className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div>
             <p className="section-label">{ui.projects.label}</p>
-            <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
-              {ui.projects.heading}
-            </h2>
+            <h2 className="mt-3 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">{ui.projects.heading}</h2>
           </div>
-          <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">
-            {ui.projects.subheading}
-          </p>
-        </div>
-        <div className="grid gap-6">
+          <p className="max-w-xl text-base leading-7 text-[var(--color-muted)]">{ui.projects.subheading}</p>
+        </motion.div>
+        <motion.div
+          className="grid gap-6"
+          variants={stagger(0.15)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {projects.map((project, index) => (
-            <article
+            <motion.article
               key={project.name}
+              variants={fadeUp}
               className={`grid gap-6 overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-white p-5 shadow-[0_30px_80px_rgba(18,26,33,0.07)] lg:grid-cols-[1.05fr_0.95fr] lg:p-7 ${
                 index % 2 === 1 ? "lg:grid-cols-[0.95fr_1.05fr]" : ""
               }`}
@@ -329,9 +387,7 @@ export default function Home() {
                           <span className="text-xs font-medium text-[var(--color-muted)]">{shot.title}</span>
                         </div>
                         <div className="mt-2">
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-strong)]">
-                            {shot.device}
-                          </p>
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-strong)]">{shot.device}</p>
                           <p className="mt-1 text-[11px] leading-5 text-[var(--color-muted)]">{shot.summary}</p>
                         </div>
                       </div>
@@ -339,48 +395,60 @@ export default function Home() {
                   </div>
                 )}
                 <div className="flex flex-wrap gap-3">
-                  <Link href={project.demo} className="button">
-                    {ui.nav.liveDemo}
-                  </Link>
-                  <Link href={project.github} className="button button-ghost">
-                    {ui.nav.sourceCode}
-                  </Link>
+                  <Link href={project.demo} className="button">{ui.nav.liveDemo}</Link>
+                  <Link href={project.github} className="button button-ghost">{ui.nav.sourceCode}</Link>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </section>
 
+      {/* ── FAQ + Contact ── */}
       <section className="mx-auto max-w-7xl px-6 pb-20 md:px-10 lg:px-12">
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="panel p-7 sm:p-8">
+          <motion.div
+            className="panel p-7 sm:p-8"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <p className="section-label">FAQ</p>
-            <div className="mt-6 space-y-4">
+            <motion.div
+              className="mt-6 space-y-4"
+              variants={stagger(0.08)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {faqs.map((faq) => (
-                <article key={faq.question} className="rounded-[1.35rem] border border-[var(--color-border)] bg-white px-5 py-4">
+                <motion.article
+                  key={faq.question}
+                  variants={fadeUp}
+                  className="rounded-[1.35rem] border border-[var(--color-border)] bg-white px-5 py-4"
+                >
                   <h3 className="text-lg font-semibold">{faq.question}</h3>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">{faq.answer}</p>
-                </article>
+                </motion.article>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <section id="contact" className="panel p-7 sm:p-8">
+          <motion.section
+            id="contact"
+            className="panel p-7 sm:p-8"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <p className="section-label">{ui.contact.label}</p>
-            <h2 className="mt-4 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">
-              {ui.contact.heading}
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)]">
-              {ui.contact.subheading}
-            </p>
+            <h2 className="mt-4 font-serif text-4xl tracking-[-0.04em] sm:text-5xl">{ui.contact.heading}</h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-[var(--color-muted)]">{ui.contact.subheading}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href={`mailto:${personalInfo.email}`} className="button">
-                {personalInfo.email}
-              </a>
-              <a href={`tel:${personalInfo.phoneRaw}`} className="button button-ghost">
-                {ui.nav.callMe}
-              </a>
+              <a href={`mailto:${personalInfo.email}`} className="button">{personalInfo.email}</a>
+              <a href={`tel:${personalInfo.phoneRaw}`} className="button button-ghost">{ui.nav.callMe}</a>
             </div>
             <div className="mt-10 grid gap-4">
               {contactLinks.map((link) => (
@@ -394,18 +462,17 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-          </section>
+          </motion.section>
         </div>
       </section>
 
+      {/* ── Footer ── */}
       <footer className="border-t border-[var(--color-border)] bg-white/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-[var(--color-muted)] md:flex-row md:items-center md:justify-between md:px-10 lg:px-12">
           <p>{personalInfo.name} {ui.footer}</p>
           <div className="flex flex-wrap gap-4">
             {ui.nav.items.map((item) => (
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
+              <Link key={item.href} href={item.href}>{item.label}</Link>
             ))}
           </div>
         </div>
