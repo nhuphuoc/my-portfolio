@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://your-portfolio.vercel.app/sitemap.xml"
+    sitemap: "https://www.phuocbui.cloud/sitemap.xml"
   };
 }
