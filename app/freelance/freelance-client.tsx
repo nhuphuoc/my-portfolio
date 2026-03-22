@@ -24,7 +24,7 @@ export default function FreelanceClientPage() {
   const featuredProjects = data.projects.slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-[var(--color-cream)] text-[var(--color-ink)]">
+    <main key={lang} className="min-h-screen bg-[var(--color-cream)] text-[var(--color-ink)]">
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden border-b border-[var(--color-border)]">
