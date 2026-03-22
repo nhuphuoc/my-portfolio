@@ -73,8 +73,8 @@ export const translations: Record<Lang, PortfolioTranslation> = {
     },
     highlights: [
       { value: "4+ years", label: "Hands-on experience across backend systems and modern web products" },
-      { value: "Top 4th", label: "Won fourth prize at the National Science and Engineering Fair" },
-      { value: "10+ projects", label: "Participated in and successfully delivered software and web product projects" }
+      { value: "15+ projects", label: "Participated in and successfully delivered software and web product projects" },
+      { value: "Top 4th", label: "Won fourth prize at the National Science and Engineering Fair" }
     ],
     contactLinks: [
       { label: "GitHub", value: "github.com/nhuphuoc", href: "https://github.com/nhuphuoc" },
@@ -344,8 +344,9 @@ export const translations: Record<Lang, PortfolioTranslation> = {
     },
     highlights: [
       { value: "4+ năm", label: "Kinh nghiệm thực tế trên các hệ thống backend và sản phẩm web hiện đại" },
-      { value: "Top 4", label: "Đạt giải Tư tại Hội thi Khoa học Kỹ thuật Quốc gia" },
-      { value: "10+ dự án", label: "Tham gia và hoàn thành thành công các dự án phần mềm và sản phẩm web" }
+      { value: "15+ dự án", label: "Tham gia và hoàn thành thành công các dự án phần mềm và sản phẩm web" },
+      { value: "Top 4", label: "Đạt giải Tư tại Hội thi Khoa học Kỹ thuật Quốc gia" }
+
     ],
     contactLinks: [
       { label: "GitHub", value: "github.com/nhuphuoc", href: "https://github.com/nhuphuoc" },
