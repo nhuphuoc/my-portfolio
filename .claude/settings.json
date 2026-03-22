@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Read(//Users/buiphuoc/**)"
+      "Read(//Users/buiphuoc/**)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
