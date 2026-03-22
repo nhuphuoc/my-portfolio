@@ -10,28 +10,20 @@ const playfair = Playfair_Display({
   display: "swap"
 });
 
-const title = "Phuoc Bui | Creative Developer Portfolio";
+const title = "Phuoc Bui — Software Engineer";
 const description =
-  "A modern personal portfolio crafted with Next.js, focused on product-minded frontend engineering, interaction design, and high-impact digital experiences.";
-const siteUrl = "https://your-portfolio.vercel.app";
+  "Portfolio of Phuoc Bui (Bui Nhu Phuoc), a software engineer based in Ho Chi Minh City. Building backend systems with Java & Spring Boot and modern web products with Next.js.";
+const siteUrl = "https://www.phuocbui.cloud";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  keywords: [
-    "portfolio",
-    "frontend developer",
-    "next.js",
-    "typescript",
-    "tailwind css",
-    "creative developer"
-  ],
   openGraph: {
     title,
     description,
     url: siteUrl,
-    siteName: "Phuoc Bui Portfolio",
+    siteName: "Phuoc Bui",
     type: "website"
   },
   twitter: {
@@ -41,6 +33,29 @@ export const metadata: Metadata = {
   }
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Phuoc Bui",
+  alternateName: ["Bui Nhu Phuoc", "Bui Phuoc"],
+  url: siteUrl,
+  email: "nhuphuoc.bui@gmail.com",
+  jobTitle: "Software Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "NAB Innovation Centre Vietnam"
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ho Chi Minh City",
+    addressCountry: "VN"
+  },
+  sameAs: [
+    "https://github.com/nhuphuoc",
+    "https://www.linkedin.com/in/phuocbn/"
+  ]
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -48,6 +63,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={playfair.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body suppressHydrationWarning>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
