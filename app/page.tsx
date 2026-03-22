@@ -129,6 +129,9 @@ export default function Home() {
                   {item.label}
                 </Link>
               ))}
+              <Link href="/freelance" className="rounded-full border border-[var(--color-border)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]">
+                PB Studio
+              </Link>
             </nav>
             <div className="hidden items-center gap-3 md:flex">
               <button
